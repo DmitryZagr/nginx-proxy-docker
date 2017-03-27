@@ -1,0 +1,24 @@
+version: '2'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx.tmpl:/app/nginx.tmpl
+
+  whoami:
+    image: jwilder/whoami
+    container_name: whoami
+    environment:
+      - VIRTUAL_HOST=whoami
+  
+  # netty-server:
+  #   image: netty
+  #   container_name: netty
+  #   environment:
+  #     - VIRTUAL_HOST=netty
+  #   volumes:
+  #         - /Users/admin/Desktop/ru.mail.server/static/http-test-suite:/home/mail/static
