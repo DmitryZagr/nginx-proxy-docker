@@ -19,11 +19,13 @@ services:
     environment:
       - VIRTUAL_HOST=whoami
 
-#  tomcat:
-#    image: tomcat:8.5
-#    container_name: tomcat8.5
-#    environment:
-#      - VIRTUAL_HOST=tomcat
+  tomcat:
+    image: tomcat:8.5
+    container_name: tomcat8.5
+    environment:
+      - VIRTUAL_HOST=tomcat
+    volumes:
+      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml
   
   # netty-server:
   #   image: netty
