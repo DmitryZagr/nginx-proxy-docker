@@ -6,6 +6,7 @@ services:
     environment:
       - NGINX_PORT=80
       - SERVER_NAME=localhost
+      - SAVE_ROOT_PATH=/
     ports:
       - "80:80"
     volumes:
