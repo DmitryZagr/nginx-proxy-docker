@@ -116,7 +116,7 @@ server {
 		{{ with $name := $host }}
 			location /{{ $name }} {
 		{{ end }}
-				proxy_pass http://{{ $host }}{{$ROOT_PATH}}
+				proxy_pass http://{{ $host }}{{$ROOT_PATH}};
 			}
 	{{ end }}
 {{end}}
@@ -127,7 +127,7 @@ server {
 		{{ with $name := $host }}
 			location /{{ $name }} {
 		{{ end }}
-				proxy_pass http://{{ $host }}
+				proxy_pass http://{{ $host }};
 			}
 	{{ end }}
 
