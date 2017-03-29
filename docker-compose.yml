@@ -6,7 +6,7 @@ services:
     environment:
       - NGINX_PORT=80
       - SERVER_NAME=localhost
-      - SAVE_ROOT_PATH=no
+      - SAVE_ROOT_PATH=yes
     ports:
       - "80:80"
     volumes:
@@ -27,6 +27,7 @@ services:
     volumes:
       - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml
       - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+    #command: bash -c "mkdir webapps/tomcat && mv  webapps/* webapps/tomcat/ ||  catalina.sh run"
   
   # netty-server:
   #   image: netty
