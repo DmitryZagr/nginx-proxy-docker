@@ -108,18 +108,15 @@ server {
 	{{.Env.SERVER_NAME}}
 	;
 
-{{if .Env.SAVE_ROOT_PATH}}
-
-{{with $ROOT_PATH :=  .Env.SAVE_ROOT_PATH}}
+{{if eq .Env.SAVE_ROOT_PATH "yes"}}
 
 	{{ range $host, $containers := groupBy $ "Env.VIRTUAL_HOST" }}
 		{{ with $name := $host }}
 			location /{{ $name }} {
 		{{ end }}
-				proxy_pass http://{{ $host }}{{$ROOT_PATH}};
+				proxy_pass http://{{ $host }};
 			}
 	{{ end }}
-{{end}}
 
 {{else}}
 
@@ -127,7 +124,7 @@ server {
 		{{ with $name := $host }}
 			location /{{ $name }} {
 		{{ end }}
-				proxy_pass http://{{ $host }};
+				proxy_pass http://{{ $host }}/;
 			}
 	{{ end }}
 

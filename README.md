@@ -6,9 +6,9 @@ Proxy nginx-server for docker services.
 ## New Features!
   - You can specify port on host-machine via ENV variable NGINX_PORT=port. Default value: port=80
   - You can specify server-name of host-machine via ENV variable SERVER_NAME=host-machine-name. Default value:SERVER_NAME=localhost
-  - You can specify root path  via ENV variable SAVE_ROOT_PATH={value}. Default value: SAVE_ROOT_PATH=
-  If SAVE_ROOT_PATH=empty-string, it means that the root URL will be saved.
-  If SAVE_ROOT_PATH=/, it means that the root URL will NOT be saved.
+  - You can specify root path  via ENV variable SAVE_ROOT_PATH={value}. Default value: SAVE_ROOT_PATH=yes
+  If SAVE_ROOT_PATH=yes, it means that the root URL will be saved.
+  If SAVE_ROOT_PATH=no, it means that the root URL will NOT be saved.
 
 ## Installing and Running
 
@@ -34,7 +34,7 @@ services:
     environment:
       - NGINX_PORT=80
       - SERVER_NAME=localhost
-      - SAVE_ROOT_PATH=
+      - SAVE_ROOT_PATH=yes
     ports:
       - "80:80"
     volumes:
@@ -46,12 +46,15 @@ services:
     container_name: whoami
     environment:
       - VIRTUAL_HOST=whoami
-      
-#  your-service:
-#    image:  your-service-image
-#    container_name:  your-service-container-name
-#    environment:
-#      - VIRTUAL_HOST= your-service-virtual-host-name
+
+  tomcat:
+    image: tomcat:8.5
+    container_name: tomcat8.5
+    environment:
+      - VIRTUAL_HOST=tomcat
+    volumes:
+      - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
 ```
 
 In this state, you can access the test service via url http://localhost/whoami{/path}
