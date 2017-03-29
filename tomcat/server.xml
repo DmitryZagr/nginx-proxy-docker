@@ -148,7 +148,7 @@
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
 
-            <Context path="/tomcat/manager" docBase="/usr/local/tomcat/webapps/manager" reloadable="true" privileged="true">
+        <!-- <Context path="/tomcat/manager" docBase="/usr/local/tomcat/webapps/manager" reloadable="true" privileged="true">
         </Context>
 
         <Context path="/tomcat/examples" docBase="/usr/local/tomcat/webapps/examples" reloadable="true" privileged="true">
@@ -161,6 +161,9 @@
         </Context>
 
         <Context path="/tomcat/host-manager" docBase="/usr/local/tomcat/webapps/host-manager" reloadable="true" privileged="true">
+        </Context> -->
+
+        <Context path="/tomcat/sample" docBase="/usr/local/tomcat/webapps/sample" reloadable="true">
         </Context>
 
             

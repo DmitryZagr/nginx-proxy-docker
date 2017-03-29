@@ -1,2 +1,4 @@
 default.conf
-Копия*
+tomcat/webapps/*
+
+!tomcat/webapps/*.war
