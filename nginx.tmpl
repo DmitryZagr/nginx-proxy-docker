@@ -98,7 +98,7 @@ upstream {{ $upstream_name }} {
 
 
 server {
-	listen {{.Env.NGINX_PORT}};
+	listen 80;
 
 	server_name 
 	{{ range $host, $containers := groupBy $ "Env.VIRTUAL_HOST" }}
@@ -137,7 +137,7 @@ server {
 
 server {
 	server_name _; # This is just an invalid value which will never trigger on a real hostname.
-	listen {{.Env.NGINX_PORT}};
+	listen 80;
 	return 503;
 }
 
