@@ -26,6 +26,9 @@ services:
       - VIRTUAL_HOST=tomcat
     volumes:
       - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./tomcat/web.xml:/usr/local/tomcat/conf/web.xml
+      # - ./tomcat/context.xml:/usr/local/tomcat/webapps/tomcat/manager/META-INF/context.xml
   
   # netty-server:
   #   image: netty

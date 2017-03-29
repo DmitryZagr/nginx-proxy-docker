@@ -146,8 +146,11 @@
       </Realm>
 
       <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true"
-	 >
+            unpackWARs="true" autoDeploy="true">
+            <Context path="/tomcat/manager" docBase="/usr/local/tomcat/webapps/manager" reloadable="true" privileged="true">
+        </Context>
+            
+	    
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
