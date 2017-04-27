@@ -10,7 +10,8 @@ services:
       - "8080:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./nginx.tmpl:/app/nginx.tmpl
+      - ./nginx/template/nginx.tmpl:/app/nginx.tmpl
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
 
   whoami:
     image: jwilder/whoami
