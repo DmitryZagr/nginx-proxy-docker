@@ -28,11 +28,3 @@ services:
       - ./tomcat/server.xml:/usr/local/tomcat/conf/server.xml
       # - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ./tomcat/webapps:/usr/local/tomcat/webapps
-  
-  # netty-server:
-  #   image: netty
-  #   container_name: netty
-  #   environment:
-  #     - VIRTUAL_HOST=netty
-  #   volumes:
-  #         - /Users/admin/Desktop/ru.mail.server/static/http-test-suite:/home/mail/static
